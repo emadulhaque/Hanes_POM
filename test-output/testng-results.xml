@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Hanes Test Application Test Suite" duration-ms="35518" started-at="2018-05-15T17:35:13Z" finished-at="2018-05-15T17:35:48Z">
+    <groups>
+    </groups>
+    <test name="Hanes Test Cases" duration-ms="35518" started-at="2018-05-15T17:35:13Z" finished-at="2018-05-15T17:35:48Z">
+      <class name="com.hanes.qa.testclasses.HomePageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="setUp" is-config="true" duration-ms="7831" started-at="2018-05-15T17:35:13Z" finished-at="2018-05-15T17:35:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="handleFrame()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="handleFrame" duration-ms="14" started-at="2018-05-15T17:35:20Z" finished-at="2018-05-15T17:35:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- handleFrame -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="tearOff" is-config="true" duration-ms="499" started-at="2018-05-15T17:35:20Z" finished-at="2018-05-15T17:35:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="setUp" is-config="true" duration-ms="5716" started-at="2018-05-15T17:35:21Z" finished-at="2018-05-15T17:35:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyTitleTest()[pri:1, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="verifyTitleTest" duration-ms="888" started-at="2018-05-15T17:35:27Z" finished-at="2018-05-15T17:35:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="tearOff" is-config="true" duration-ms="203" started-at="2018-05-15T17:35:28Z" finished-at="2018-05-15T17:35:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="setUp" is-config="true" duration-ms="5246" started-at="2018-05-15T17:35:28Z" finished-at="2018-05-15T17:35:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyLogoTest()[pri:2, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="verifyLogoTest" duration-ms="809" started-at="2018-05-15T17:35:33Z" finished-at="2018-05-15T17:35:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogoTest -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="tearOff" is-config="true" duration-ms="160" started-at="2018-05-15T17:35:34Z" finished-at="2018-05-15T17:35:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="setUp" is-config="true" duration-ms="5633" started-at="2018-05-15T17:35:34Z" finished-at="2018-05-15T17:35:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="menPageTest()[pri:3, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="menPageTest" duration-ms="1183" started-at="2018-05-15T17:35:40Z" finished-at="2018-05-15T17:35:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- menPageTest -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="tearOff" is-config="true" duration-ms="219" started-at="2018-05-15T17:35:41Z" finished-at="2018-05-15T17:35:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="setUp" is-config="true" duration-ms="5381" started-at="2018-05-15T17:35:41Z" finished-at="2018-05-15T17:35:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="womenPageTest()[pri:4, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="womenPageTest" duration-ms="1458" started-at="2018-05-15T17:35:46Z" finished-at="2018-05-15T17:35:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- womenPageTest -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:com.hanes.qa.testclasses.HomePageTest@7d9d1a19]" name="tearOff" is-config="true" duration-ms="242" started-at="2018-05-15T17:35:48Z" finished-at="2018-05-15T17:35:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+      </class> <!-- com.hanes.qa.testclasses.HomePageTest -->
+    </test> <!-- Hanes Test Cases -->
+  </suite> <!-- Hanes Test Application Test Suite -->
+</testng-results>

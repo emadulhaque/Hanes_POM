@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Hanes Test Application Test Suite">
+  <test  name="Hanes Test Cases">
+	  <classes> 
+		  <class name="com.hanes.qa.testclasses.HomePageTest"></class>
+		 
+	  </classes>
+  
+  </test>
+</suite> 
