@@ -47,6 +47,7 @@ public class TestBase
 		{
 			System.setProperty("webdriver.chrome.driver", "/Users/mdhaque/Downloads/chromedriver");
 			driver=new ChromeDriver();
+			System.out.println("Test for confiliction Emadul");
 			
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
