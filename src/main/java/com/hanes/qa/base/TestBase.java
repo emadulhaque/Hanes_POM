@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.Window;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 import com.hanes.qa.util.TestUtil;
 
@@ -29,6 +33,7 @@ public class TestBase
 		catch(FileNotFoundException e)
 		{
 			e.printStackTrace();
+			
 		}
 		catch(IOException e)
 		{
@@ -42,6 +47,7 @@ public class TestBase
 		{
 			System.setProperty("webdriver.chrome.driver", "/Users/mdhaque/Downloads/chromedriver");
 			driver=new ChromeDriver();
+			
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
@@ -52,5 +58,6 @@ public class TestBase
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
+		
 	}
 }

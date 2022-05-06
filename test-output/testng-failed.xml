@@ -3,15 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanes.qa.testclasses.HomePageTest">
+      <class name="com.hanes.qa.util.WebTableHandle">
         <methods>
-          <include name="womenPageTest"/>
-          <include name="tearOff"/>
-          <include name="verifyLogoTest"/>
-          <include name="menPageTest"/>
-          <include name="setUp"/>
+          <include name="handleWebTable"/>
         </methods>
-      </class> <!-- com.hanes.qa.testclasses.HomePageTest -->
+      </class> <!-- com.hanes.qa.util.WebTableHandle -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,6 +2,7 @@ package com.hanes.qa.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import org.apache.commons.io.FileUtils;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -9,20 +10,31 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.tools.ant.util.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.hanes.qa.base.TestBase;
 
 public class TestUtil extends TestBase
 {
+	WebDriver driver=new ChromeDriver();
 	public static long PAGE_LOAD_TIMEOUT=20;
 	public static long IMPLICIT_WAIT =10;
 	
 	public void switchToFrame() 
 	{
 		driver.switchTo().frame(1);
+		
 		
 	}
 
@@ -37,131 +49,66 @@ public class TestUtil extends TestBase
 
 	//	This method is only to read a data from a particular cell in a excel sheet
 
-	public static void main(String[] args) 
+	
+	
+	
+	public void captureScreenMethod(String fileName) throws Exception
 	{
+		//((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		
-		XSSFWorkbook ExcelWBook;
-		XSSFSheet ExcelWSheet;
-		XSSFCell Cell;
-		
-		// Location of the Excel file
-		String path = "/Users/mdhaque/eclipse-workspace/HanesProject/src/main/java/com/hanes/qa/testdata/Login_data.xlsx";
-		String sheetName = "Sheet1";
-
-		try {
-			FileInputStream ExcelFile = new FileInputStream(path);
-			ExcelWBook = new XSSFWorkbook(ExcelFile);
-			ExcelWSheet = ExcelWBook.getSheet(sheetName);
-			
-			Cell = ExcelWSheet.getRow(1).getCell(2);
-			String cellData = Cell.getStringCellValue();
-			System.out.println("Cell Data: " + cellData);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-	}
-	
-	private static XSSFWorkbook ExcelWBook;
-	private static XSSFSheet ExcelWSheet;
-
-	/*
-	 * Set the File path, open Excel file
-	 * @params - Excel Path and Sheet Name
-	 * The following method is to read multiple data from multiple row and column simultaneously
-	 */
-	public static void setExcelFile(String path, String sheetName) throws Exception {
-		try {
-			// Open the Excel file
-			FileInputStream ExcelFile = new FileInputStream(path);
-
-			// Access the excel data sheet
-			ExcelWBook = new XSSFWorkbook(ExcelFile);
-			ExcelWSheet = ExcelWBook.getSheet(sheetName);
-		} catch (Exception e) {
-			throw (e);
-		}
-	}
-
-	public static String[][] getTestData(String tableName) {
-		String[][] testData = null;
-
-		try {
-			// Handle numbers and strings
-			DataFormatter formatter = new DataFormatter();
-			// BoundaryCells are the first and the last column
-			// We need to find first and last column, so that we know which rows to read for the data
-			XSSFCell[] boundaryCells = findCells(tableName);
-			// First cell to start with
-			XSSFCell startCell = boundaryCells[0];
-			// Last cell where data reading should stop
-			XSSFCell endCell = boundaryCells[1];
-			
-			// Find the start row based on the start cell
-			int startRow = startCell.getRowIndex() + 1;
-			// Find the end row based on end cell
-			int endRow = endCell.getRowIndex() - 1;
-			// Find the start column based on the start cell
-			int startCol = startCell.getColumnIndex() + 1;
-			// Find the end column based on end cell
-			int endCol = endCell.getColumnIndex() - 1;
-
-			// Declare multi-dimensional array to capture the data from the table
-			testData = new String[endRow - startRow + 1][endCol - startCol + 1];
-
-			for (int i=startRow; i<endRow+1; i++) {
-				for (int j=startCol; j<endCol+1; j++) {
-					// testData[i-startRow][j-startCol] = ExcelWSheet.getRow(i).getCell(j).getStringCellValue();
-					// For every column in every row, fetch the value of the cell
-					Cell cell = ExcelWSheet.getRow(i).getCell(j);
-					// Capture the value of the cell in the multi-dimensional array
-					testData[i - startRow][j - startCol] = formatter.formatCellValue(cell);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// Return the multi-dimensional array
-		return testData;
-	}
-
-	public static XSSFCell[] findCells(String tableName) {
-		DataFormatter formatter = new DataFormatter();
-		// Declare begin position
-		String pos = "begin";
-		XSSFCell[] cells = new XSSFCell[2];
-
-		for (Row row : ExcelWSheet) {
-			for (Cell cell : row) {
-				// if (tableName.equals(cell.getStringCellValue())) {
-				if (tableName.equals(formatter.formatCellValue(cell))) {
-					if (pos.equalsIgnoreCase("begin")) {
-						// Find the begin cell, this is used for boundary cells
-						cells[0] = (XSSFCell) cell;
-						pos = "end";
-					} else {
-						// Find the end cell, this is used for boundary cells
-						cells[1] = (XSSFCell) cell;
-					}
-				}
-			}
-		}
-		// Return the cells array
-		return cells;
-	}
-	
-	
-	
-	public static void captureScreenMethod() throws Exception
-	{
+		TakesScreenshot sc=new ChromeDriver(); 
+		TakesScreenshot scrinShot=((TakesScreenshot)driver);
+		 File screenShotFile=scrinShot.getScreenshotAs(OutputType.FILE); //screen shot is created
+		 //now copy the pic to a destination
+		 FileUtils.copyFile(screenShotFile, new File("Md Emadul Haque⁩/⁨Users⁩/⁨mdhaque⁩/⁨Desktop/NewFileLocation.png⁩"));
 		 
-		 File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		 FileUtils.copyFile(screenshotFile, new File("D:\\SoftwareTestingMaterial.png"));
+		 
+		 //We can take screen shot by using EventFiringWebDriver as well
+		 
+		 EventFiringWebDriver eDriver=new EventFiringWebDriver(driver);
+		 
+		 File srcFile = eDriver.getScreenshotAs(OutputType.FILE);
+		  
+		 FileUtils.copyFile(srcFile, new File("imgPath"));
+		 
+//		 File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		 FileUtils copyFile= (screenshotFile, "/Users/mdhaque/eclipse-workspace/HanesProject/src/main/java/com/hanes/qa/util/"+fileName+".png");
 		 
 	}
+	
+	public void DoubleClick_RightClick()
+	{
+		WebElement ele=driver.findElement(By.xpath("id=kfs"));
+		Actions action=new Actions(driver);
+		action.doubleClick().build().perform();
+		//action.contextClick(ele);
+		
+	}
+	
+	public void mouseOver()
+	{
+		WebElement ele=driver.findElement(By.xpath("id=kfs"));
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("456", 657);
+		//action.doubleClick(ele).perform();
+	}
+	
+	public void headlessDriver()
+	 {
+		 
+		//HtmlUnitDriver driver = new HtmlUnitDriver(true);
+	
+		driver.setJavascriptEnabled(false);
+		 
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 
+		driver.get("https://www.google.co.in/");
+		 
+		System.out.println(driver.getTitle());
+		 
+		}
+		 
+		
 
 	
 	
