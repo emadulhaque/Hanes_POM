@@ -47,7 +47,9 @@ public class TestBase
 		{
 			System.setProperty("webdriver.chrome.driver", "/Users/mdhaque/Downloads/chromedriver");
 			driver=new ChromeDriver();
-			
+			int i=6;
+			int j=5;
+			System.out.println(i+j);
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
