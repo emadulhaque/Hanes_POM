@@ -28,6 +28,7 @@ public class HomePageTest extends TestBase
 	{
 		initialization();
 		homePage=new HomePage();
+		System.out.println("Changed for git");
 		
 		log.info("Test has been started here");
 	}
